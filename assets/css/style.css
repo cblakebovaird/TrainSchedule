@@ -1,12 +1,12 @@
 .display-4{
     text-align: center;
-    color: black;
+    color:white;
     font-weight:bolder;
 }
 
 .lead{
     text-align: center;
-    color: black;
+    color:white;
     font-weight:bolder;
 
 }
@@ -17,11 +17,16 @@ body {
 }
 
 .jumbotron{
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgC8uWzCkFn0lhglXlcTU3x9EDUiiL905N9Wsnd5c4Mr5gMyj_);
+    /* background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgC8uWzCkFn0lhglXlcTU3x9EDUiiL905N9Wsnd5c4Mr5gMyj_); */
+    background-image: url(https://blog.hdwallsource.com/wp-content/uploads/2016/01/train-track-wallpapers-37960-38830-hd-wallpapers.jpg);
     background-size: cover;
 }
 
 h2{
+    background-color: #232324;
+    color: white;
+}
+p{
     background-color: #232324;
     color: white;
 }
