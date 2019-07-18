@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Train Schedule</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+        <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                  <h1 class="display-4">ALL ABOARD!!!</h1>
+                  <p class="lead">Use this page as a reference guide to get you where you need to go!</p>
+                </div>
+              </div>
+              
+
+              <form>
+                    <div class="form-group">
+                        <h2>Add Train</h2>
+                      <label for="trainNameInput">Train Name</label>
+                      <input type="email" class="form-control" id="trainNameInput" aria-describedby="trainHelp" placeholder="Enter Train Name">
+                      <small id="trainHelp" class="form-text text-muted"></small>
+                    </div>
+                    <div class="form-group">
+                      <label for="destinationInput">Destination</label>
+                      <input type="destination" class="form-control" id="destinationInput" placeholder="Destination Goes Here">
+                    </div>
+                    <div class="form-group">
+                      <label for="firstTrainInput">First Train Time -- in military time</label>
+                      <input type="trainTime" class="form-control" id="firstTrainInput" placeholder=>
+                    </div>
+                    <div class="form-group">
+                      <label for="frequencyInput">Frequency -- in minutes</label>
+                      <input type="frequency" class="form-control" id="frequencyInput" placeholder=>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form> 
+
+
+    <!--JQUERY  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- External Javascript -->
+    <script src='assets/javascript/app.js'></script>
+</body>
+</html>

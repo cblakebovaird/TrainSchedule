@@ -1,0 +1,22 @@
+.display-4{
+    text-align: center;
+    color: black;
+    font-weight:bolder;
+}
+
+.lead{
+    text-align: center;
+    color: black;
+    font-weight:bolder;
+
+}
+
+.jumbotron{
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgC8uWzCkFn0lhglXlcTU3x9EDUiiL905N9Wsnd5c4Mr5gMyj_);
+    background-size: cover;
+}
+
+h2{
+    background-color: goldenrod;
+    color: white;
+}
