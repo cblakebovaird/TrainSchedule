@@ -10,6 +10,11 @@
     font-weight:bolder;
 
 }
+body {
+    background-color: #232324;
+    margin: 40px;
+   
+}
 
 .jumbotron{
     background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgC8uWzCkFn0lhglXlcTU3x9EDUiiL905N9Wsnd5c4Mr5gMyj_);
@@ -17,6 +22,31 @@
 }
 
 h2{
-    background-color: goldenrod;
+    background-color: #232324;
     color: white;
 }
+
+.form-group{
+    background-color: #343a40;
+    color: white;
+    padding-left: 10px;
+
+}
+
+.form-control{
+    background-color: #343a40;
+    color:white;
+    padding-left: 10px;
+}
+form{
+    background-color: #343a40;
+}
+#trainNameInput,
+#destinationInput,
+#firstTrainInput,
+#frequencyInput {
+    background-color: #343a40;
+    color:white;
+   
+}
+
