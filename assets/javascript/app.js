@@ -23,20 +23,27 @@ $("#add-train").on("click", function(event) {
     // Write code to add the new animal into the movies array
     var newTrainName = $("#trainNameInput").val().trim();
     var newDestination = $("#destinationInput").val().trim();
-    var newTime = $("#firstTrainInput").val().trim();
     var newFrequency = $("#frequencyInput").val().trim();
+    var firstTrainTime = $("firstTrainInput").val().trim();
+    
         // Clears the text field after creating the new button
     $("#trainNameInput").val("");
     $("#destinationInput").val("");
-    $("#firstTrainInput").val("");
     $("#frequencyInput").val("");
+    $("#firstTrainInput").val("");
+    
 
     var newtrain = {
       name : newTrainName,
       destination : newDestination,
-      time : newTime,
-      frequency : newFrequency
+      frequency : newFrequency,
+      firstTime : firstTrainTime
     }
+
+    var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
+    var currentTime = moment();
+    var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+
 
     database.ref().push(newtrain);
 
@@ -52,10 +59,9 @@ $("#add-train").on("click", function(event) {
 
       var tdName = $("<td>").text(childSnapshot.val().name);
       var tdDestination = $("<td>").text(childSnapshot.val().destination);
-      var tdTime = $("<td>").text(childSnapshot.val().time);
       var tdFrequency = $("<td>").text(childSnapshot.val().frequency);
 
-      tr.append(tdName).append(tdDestination).append(tdTime).append(tdFrequency);
+      tr.append(tdName).append(tdDestination).append(tdFrequency);
 
       $(".tbody").append(tr);
 
