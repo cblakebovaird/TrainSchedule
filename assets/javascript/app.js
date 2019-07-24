@@ -20,36 +20,80 @@ $("#add-train").on("click", function(event) {
     event.preventDefault();
 
     // Write code to grab the text the user types into the input field
-    // Write code to add the new animal into the movies array
-    var newTrainName = $("#trainNameInput").val().trim();
-    var newDestination = $("#destinationInput").val().trim();
-    var newFrequency = $("#frequencyInput").val().trim();
-    var firstTrainTime = $("firstTrainInput").val().trim();
+    var newTrainName = $("#trainNameInput").val();
+    var newDestination = $("#destinationInput").val();
+    var newFrequency = $("#frequencyInput").val();
+    var firstTrainTime = $("#firstTrainInput").val();
+
+    // Creates local "temporary" object for holding train data
+    var newTrain = {
+      name : newTrainName,
+      destination : newDestination,
+      frequency : newFrequency,
+      time : firstTrainTime,
+      // next : nextTrain,
+      // minutes : tMinutesTillTrain
+    };
+
+    var tFrequency = newFrequency;
+
+    var firstTime = firstTrainTime;
+    console.log(firstTime);
+
+    var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
+    console.log(firstTimeConverted);
+
+    // Current Time
+    var currentTime = moment();
+    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
     
-        // Clears the text field after creating the new button
+    currentTimeConverted = moment(currentTime).format("HH:mm");
+    console.log(currentTimeConverted);
+
+    // Difference between the times
+    var diffTime = moment().diff(moment(firstTime, "minutes"));
+    console.log("DIFFERENCE IN TIME: " + diffTime);
+
+     // Time apart (remainder)
+     var tRemainder = diffTime % tFrequency;
+     console.log(tRemainder);
+ 
+     // Minute Until Train
+     var tMinutesTillTrain = tFrequency - tRemainder;
+     console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+ 
+     // Next Train
+     var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+     console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
+
+
+
+    // uploads employee data to the database
+    database.ref().push(newTrain);
+
+
+    console.log(newTrain.name);
+    console.log(newTrain.destination);
+    console.log(newTrain.frequency);
+    console.log(newTrain.first);
+
+    alert("Train successfully added");
+
+      // Clears the text field after creating the new train
     $("#trainNameInput").val("");
     $("#destinationInput").val("");
     $("#frequencyInput").val("");
     $("#firstTrainInput").val("");
     
+ });
+    
 
-    var newtrain = {
-      name : newTrainName,
-      destination : newDestination,
-      frequency : newFrequency,
-      firstTime : firstTrainTime
-    }
+  
 
-    var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
-    var currentTime = moment();
-    var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
-
-
-    database.ref().push(newtrain);
-
-    console.log(newtrain);
 
     database.ref().on("child_added", function(childSnapshot){
+      console.log(childSnapshot.val());
+
       console.log(childSnapshot.val().name);
       console.log(childSnapshot.val().destination);
       console.log(childSnapshot.val().time);
@@ -60,8 +104,10 @@ $("#add-train").on("click", function(event) {
       var tdName = $("<td>").text(childSnapshot.val().name);
       var tdDestination = $("<td>").text(childSnapshot.val().destination);
       var tdFrequency = $("<td>").text(childSnapshot.val().frequency);
+      var tdArrival = $("<td>").text(childSnapshot.val().nextTrain);
+      var tdMinAway = $("<td>").text(childSnapshot.val().tMinutesTillTrain);
 
-      tr.append(tdName).append(tdDestination).append(tdFrequency);
+      tr.append(tdName).append(tdDestination).append(tdFrequency).append(tdArrival).append(tdMinAway);
 
       $(".tbody").append(tr);
 
@@ -71,5 +117,5 @@ $("#add-train").on("click", function(event) {
 
    
 
-    // The renderButtons function is called, rendering the list of animal buttons
-  });
+  
+ 
